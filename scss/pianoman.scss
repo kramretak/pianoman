@@ -1,0 +1,65 @@
+@import "external/reset.scss";
+
+$fontSize: 10px *3;
+$keyWidth: (100% / 7);
+$defaultShadow: 0 2px 3px #000;
+$activeShadow: inset 0 2px 3px #000;
+
+
+body {
+    background: #CCC;
+    font-family: Georgia;
+    color: #333;
+    font-size: $fontSize;
+    padding: 3%;
+}
+header {
+    text-align: center;
+}
+.piano {
+    ul {
+        background: #754C2A;
+        border: 8px solid #000;
+        border-radius: 3px;
+        padding: 1.5%;
+        box-shadow: inset 0 0 10px #000;
+        // making sure we don't have to deal with trailing whitespace:
+        font-size: 0;
+    }
+    li {
+        display: inline-block;
+        width: $keyWidth;
+        text-align: center;
+        a {
+            background: #FFF;
+            border: 2px solid #000;
+            border-radius: 0 0 5px 5px;
+            box-shadow: $defaultShadow;
+            color: #000;
+            display: block;
+            font-size: $fontSize;
+            padding-top: $keyWidth * 20;
+            position: relative;
+            text-decoration: none;
+            &:hover {
+                background-color: #EEE;
+            }
+            &:active {
+                box-shadow: $activeShadow;
+            }
+        }
+        &.black {
+            position: absolute;
+            z-index: 2;
+            width: 8%;
+            a {
+                background: #000;
+                padding-top: $keyWidth * 15;
+                position: absolute;
+                top: 0;
+                left: -50%;
+                width: 100%;
+            }
+       }
+    }
+}
