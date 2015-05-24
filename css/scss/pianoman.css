@@ -37,25 +37,25 @@ table {
 
 body {
   background: #CCC;
-  font-family: Georgia;
   color: #333;
+  font-family: "Georgia", "Times", "Times New Roman", serif;
   font-size: 30px;
-  padding: 3%; }
-
-header {
+  padding: 1% 3% 3%;
   text-align: center; }
 
 .piano ul {
   background: #754C2A;
   border: 8px solid #000;
   border-radius: 3px;
-  padding: 1.5%;
   box-shadow: inset 0 0 10px #000;
-  font-size: 0; }
+  font-size: 0;
+  margin: 2% 0;
+  padding: 1.5%; }
 .piano li {
   display: inline-block;
   width: 14.28571%;
-  text-align: center; }
+  text-align: center;
+  text-transform: uppercase; }
   .piano li a {
     background: #FFF;
     border: 2px solid #000;
@@ -64,23 +64,53 @@ header {
     color: #000;
     display: block;
     font-size: 30px;
+    outline: none;
     padding-top: 285.71429%;
     position: relative;
     text-decoration: none; }
     .piano li a:hover {
       background-color: #EEE; }
-    .piano li a:active {
-      box-shadow: inset 0 2px 3px #000; }
-  .piano li.black {
+    .piano li a:active, .piano li a.playing {
+      background-color: #FF6600;
+      box-shadow: inset 0 2px 5px #000; }
+  .piano li.black-key {
     position: absolute;
     z-index: 2;
     width: 8%; }
-    .piano li.black a {
+    .piano li.black-key a {
       background: #000;
       padding-top: 214.28571%;
       position: absolute;
       top: 0;
       left: -50%;
       width: 100%; }
+
+.piano-log input, .piano-log button {
+  border: 2px solid #000;
+  border-radius: 5px;
+  font-family: "Georgia", "Times", "Times New Roman", serif;
+  font-size: 30px;
+  padding: 6px;
+  text-align: center;
+  text-transform: uppercase; }
+.piano-log input {
+  width: 50%; }
+  .piano-log input::-webkit-input-placeholder {
+    text-transform: capitalize; }
+  .piano-log input::-moz-placeholder {
+    text-transform: capitalize; }
+.piano-log button {
+  background-color: #118637;
+  box-shadow: inset 0 0 3px #666;
+  color: #FFF;
+  outline: none;
+  text-shadow: 1px 1px 1px #000;
+  width: 25%; }
+  .piano-log button:hover {
+    background-color: #67c376;
+    cursor: pointer; }
+  .piano-log button:active {
+    background-color: #009e61;
+    box-shadow: none; }
 
 /*# sourceMappingURL=pianoman.css.map */

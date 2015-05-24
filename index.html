@@ -10,45 +10,52 @@
     <header>
         <h1>Piano Man!</h1>
     </header>
-    <div class="piano">
-        <ul class="keys">
-            <li>
-                <a href="#" title="C">C</a>
-            </li>
-            <li class="black">
-                <a href="#" title="CD">CD</a>
-            </li>
-            <li>
-                <a href="#" title="D">D</a>
-            </li>
-            <li class="black">
-                <a href="#" title="DE">DE</a>
-            </li>
-            <li>
-                <a href="#" title="E">E</a>
-            </li>
-            <li>
-                <a href="#" title="F">F</a>
-            </li>
-            <li class="black">
-                <a href="#" title="FG">FG</a>
-            </li>
-            <li>
-                <a href="#" title="G">G</a>
-            </li>
-            <li class="black">
-                <a href="#" title="GA">GA</a>
-            </li>
-            <li>
-                <a href="#" title="A">A</a>
-            </li>
-            <li class="black">
-                <a href="#" title="AB">AB</a>
-            </li>
-            <li>
-                <a href="#" title="B">B</a>
-            </li>
-        </ul>
-    </div>
+    <div class="piano-app"></div>
+    
+    
+    
+    <!-- 3rd party libraries -->
+    <script type="text/javascript" src="js/external/jquery-1.11.3-min.js"></script>
+    <script type="text/javascript" src="js/external/underscore.1.8.3-min.js"></script>
+    <script type="text/javascript" src="js/external/backbone.1.2.0-min.js"></script>
+
+    <!-- HTML templates (Underscore) -->
+    <script type="text/html" id="tpl-piano-app">
+        <div class="piano">
+            <ul class="piano-keys"></ul>
+            <div class="piano-log"></div>
+        </div>
+    </script>
+
+    <script type="text/html" id="tpl-piano-key">
+        <li<% if (blackKey) { %> class="black-key"<% } %>>
+            <a href="#" data-keyname="<%- keyName %>"><%- keyName %></a>
+        </li>
+    </script>
+
+    <script type="text/html" id="tpl-piano-log">
+        <input type="text" name="input-log" placeholder="Keystroke Log" value="<%- melody %>" />
+        <button class="play">&#x25B6;</button>
+    </script>
+
+    <!-- backbone app logic -->
+    <script type="text/javascript" src="js/models/pianoModel.js"></script>
+    <script type="text/javascript" src="js/views/pianoKeysView.js"></script>
+    <script type="text/javascript" src="js/views/pianoLogView.js"></script>
+    <script type="text/javascript" src="js/views/pianoView.js"></script>
+    <script type="text/javascript">
+        var myPiano = new PianoView();
+        myPiano.render();
+    </script>
+
+    <!-- Dutch audio files for letter A-G :) -->
+    <audio src="audio/a.mp3" data-keyname="a" preload="auto"></audio>
+    <audio src="audio/b.mp3" data-keyname="b" preload="auto"></audio>
+    <audio src="audio/c.mp3" data-keyname="c" preload="auto"></audio>
+    <audio src="audio/d.mp3" data-keyname="d" preload="auto"></audio>
+    <audio src="audio/e.mp3" data-keyname="e" preload="auto"></audio>
+    <audio src="audio/f.mp3" data-keyname="f" preload="auto"></audio>
+    <audio src="audio/g.mp3" data-keyname="g" preload="auto"></audio>
+
 </body>
 </html>
