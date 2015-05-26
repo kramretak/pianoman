@@ -1,7 +1,7 @@
 @import "external/reset.scss";
 
 $fontFamily: "Georgia", "Times", "Times New Roman", serif;
-$fontSize: 10px *3;
+$fontSize: 30px;
 $keyWidth: (100% / 7);
 $defaultShadow: 0 2px 3px #000;
 $activeShadow: inset 0 2px 5px #000;
@@ -15,6 +15,13 @@ body {
     padding: 1% 3% 3%;
     text-align: center;
 }
+h1 {
+    font-weight: bold;
+}
+p {
+    font-size: $fontSize * .6;
+}
+
 .piano {
     ul {
         background: #754C2A;
@@ -45,9 +52,7 @@ body {
             &:hover {
                 background-color: #EEE;
             }
-            &:active,
             &.playing {
-                background-color: #FF6600;
                 box-shadow: $activeShadow;
             }
         }
@@ -63,7 +68,30 @@ body {
                 left: -50%;
                 width: 100%;
             }
-       }
+        }
+        // let's have a little fun with this and have each key be different
+        // (note that we're skipping the black keys)
+        &:nth-child(1) .playing {
+            background-color: #F00;
+        }
+        &:nth-child(3) .playing {
+            background-color: #FF7F00;
+        }
+        &:nth-child(5) .playing {
+            background-color: #FF0;
+        }
+        &:nth-child(6) .playing {
+            background-color: #26a750;
+        }
+        &:nth-child(8) .playing {
+            background-color: #00F;
+        }
+        &:nth-child(10) .playing {
+            background-color: #4B0082;
+        }
+        &:nth-child(12) .playing {
+            background-color: #8F00FF;
+        }
     }
 }
 
@@ -87,12 +115,10 @@ body {
         }
     }
     button {
-        background-color: #118637;
         box-shadow: inset 0 0 3px #666;
         color: #FFF;
         outline: none;
         text-shadow: 1px 1px 1px #000;
-        width: 25%;
         &:hover {
             background-color: #67c376;
             cursor: pointer;
@@ -100,6 +126,20 @@ body {
         &:active {
             background-color: #009e61;
             box-shadow: none;
+        }
+
+        &.play {
+            background-color: #118637;
+            width: 25%;
+        }
+        &.reset {
+            background-color: #ecd2d5;
+            color: #F00;
+            width: 5%;
+        }
+        &[disabled] {
+            background-color: #CCC;
+            color: #666;
         }
     }
 }

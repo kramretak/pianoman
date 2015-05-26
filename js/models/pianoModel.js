@@ -1,6 +1,6 @@
 var PianoModel = Backbone.Model.extend({
     defaults: {
-        keyStructure: "C,CD,D,DE,E,F,FG,G,GA,A,AB,B",
+        keyStructure: "c,cd,d,de,e,f,fg,g,ga,a,ab,b",
         currentMelody: []
     }
 });

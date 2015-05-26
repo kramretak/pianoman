@@ -9,10 +9,9 @@
 <body>
     <header>
         <h1>Piano Man!</h1>
+        <p>Hit they keys with your mouse, or type the letters on your keyboard.</p>
     </header>
-    <div class="piano-app"></div>
-    
-    
+    <div class="pianoman"></div>
     
     <!-- 3rd party libraries -->
     <script type="text/javascript" src="js/external/jquery-1.11.3-min.js"></script>
@@ -34,8 +33,12 @@
     </script>
 
     <script type="text/html" id="tpl-piano-log">
-        <input type="text" name="input-log" placeholder="Keystroke Log" value="<%- melody %>" />
-        <button class="play">&#x25B6;</button>
+        <input type="text" name="input-log" placeholder="Keystroke Log" 
+            value="<%- melody %>" />
+        <button class="play" title="Play"
+            <% if (emptyLog) { %>disabled="disabled"<% } %>>&#x25B6;</button>
+        <button class="reset" title="Reset"
+            <% if (emptyLog) { %>disabled="disabled"<% } %>>&#215;</button>
     </script>
 
     <!-- backbone app logic -->
@@ -43,12 +46,9 @@
     <script type="text/javascript" src="js/views/pianoKeysView.js"></script>
     <script type="text/javascript" src="js/views/pianoLogView.js"></script>
     <script type="text/javascript" src="js/views/pianoView.js"></script>
-    <script type="text/javascript">
-        var myPiano = new PianoView();
-        myPiano.render();
-    </script>
+    <script type="text/javascript" src="js/pianoman.js"></script>
 
-    <!-- Dutch audio files for letter A-G :) -->
+    <!-- audio files -->
     <audio src="audio/a.mp3" data-keyname="a" preload="auto"></audio>
     <audio src="audio/b.mp3" data-keyname="b" preload="auto"></audio>
     <audio src="audio/c.mp3" data-keyname="c" preload="auto"></audio>
@@ -56,6 +56,7 @@
     <audio src="audio/e.mp3" data-keyname="e" preload="auto"></audio>
     <audio src="audio/f.mp3" data-keyname="f" preload="auto"></audio>
     <audio src="audio/g.mp3" data-keyname="g" preload="auto"></audio>
+    <audio src="audio/error.mp3" data-keyname="error" preload="auto"></audio>
 
 </body>
 </html>

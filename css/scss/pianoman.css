@@ -43,6 +43,12 @@ body {
   padding: 1% 3% 3%;
   text-align: center; }
 
+h1 {
+  font-weight: bold; }
+
+p {
+  font-size: 18px; }
+
 .piano ul {
   background: #754C2A;
   border: 8px solid #000;
@@ -70,8 +76,7 @@ body {
     text-decoration: none; }
     .piano li a:hover {
       background-color: #EEE; }
-    .piano li a:active, .piano li a.playing {
-      background-color: #FF6600;
+    .piano li a.playing {
       box-shadow: inset 0 2px 5px #000; }
   .piano li.black-key {
     position: absolute;
@@ -84,6 +89,20 @@ body {
       top: 0;
       left: -50%;
       width: 100%; }
+  .piano li:nth-child(1) .playing {
+    background-color: #F00; }
+  .piano li:nth-child(3) .playing {
+    background-color: #FF7F00; }
+  .piano li:nth-child(5) .playing {
+    background-color: #FF0; }
+  .piano li:nth-child(6) .playing {
+    background-color: #26a750; }
+  .piano li:nth-child(8) .playing {
+    background-color: #00F; }
+  .piano li:nth-child(10) .playing {
+    background-color: #4B0082; }
+  .piano li:nth-child(12) .playing {
+    background-color: #8F00FF; }
 
 .piano-log input, .piano-log button {
   border: 2px solid #000;
@@ -100,17 +119,25 @@ body {
   .piano-log input::-moz-placeholder {
     text-transform: capitalize; }
 .piano-log button {
-  background-color: #118637;
   box-shadow: inset 0 0 3px #666;
   color: #FFF;
   outline: none;
-  text-shadow: 1px 1px 1px #000;
-  width: 25%; }
+  text-shadow: 1px 1px 1px #000; }
   .piano-log button:hover {
     background-color: #67c376;
     cursor: pointer; }
   .piano-log button:active {
     background-color: #009e61;
     box-shadow: none; }
+  .piano-log button.play {
+    background-color: #118637;
+    width: 25%; }
+  .piano-log button.reset {
+    background-color: #ecd2d5;
+    color: #F00;
+    width: 5%; }
+  .piano-log button[disabled] {
+    background-color: #CCC;
+    color: #666; }
 
 /*# sourceMappingURL=pianoman.css.map */
